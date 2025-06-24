@@ -2,4 +2,12 @@
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
+
+  --horizontal-padding: 120px;
+
+  --graphite: #3A3A3A;
+}
+
+body {
+  margin: 0;
 }

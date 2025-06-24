@@ -1,8 +1,9 @@
-function App() {
+import SearchPage from "./pages/SearchPage/SearchPage"
 
+const App = () => {
   return (
     <>
-
+      <SearchPage />
     </>
   )
 }

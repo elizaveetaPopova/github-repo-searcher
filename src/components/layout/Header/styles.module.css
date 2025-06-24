@@ -1,0 +1,15 @@
+.header {
+    height: 72px;
+    background-color: var(--graphite);
+    display: flex;
+    align-items: center;
+    padding: 0 var(--horizontal-padding);
+    justify-content: space-between;
+}
+
+.navList {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    gap: 32px
+}
