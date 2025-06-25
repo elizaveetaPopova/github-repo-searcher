@@ -1,0 +1,11 @@
+.button {
+    background-color: var(--cinnabar-red);
+    border: none;
+    cursor: pointer;
+    height: 32px;
+    border-radius: 8px;
+    padding: 0 16px;
+    color: var(--white);
+    font-weight: 600;
+    
+}
