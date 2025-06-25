@@ -13,3 +13,15 @@
     display: flex;
     gap: 32px
 }
+
+.navItem {
+    display: flex;
+    align-items: center;
+}
+
+.navButton {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
