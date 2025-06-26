@@ -6,13 +6,21 @@ import repoStore from '../../store/repo.store';
 import Dropdown from '../../components/ui/Dropdown';
 import SearchInput from '../../components/ui/SearchInput';
 import { debounce } from '../../utils/debounce';
+import type { SortOption } from '../../types/Repos/ReposTypes';
 
 import styles from './styles.module.css';
+
+const options: SortOption[] = [
+  { value: 'stars', label: 'Star count' },
+  { value: 'name', label: 'Alphabetical' },
+  { value: 'updated', label: 'New first' },
+];
 
 const SearchPage = observer(() => {
   const [query, setQuery] = useState('');
   const [inputError, setInputError] = useState<string | null>(null);
-  const { repositories, loading, error, totalCount } = repoStore;
+  const { repositories, loading, error, totalCount, sortBy, setSortBy } =
+    repoStore;
 
   const debouncedSearch = useRef(
     debounce((query: string) => {
@@ -39,6 +47,16 @@ const SearchPage = observer(() => {
     return true;
   };
 
+  const handleDropdownChange = (option: SortOption) => {
+    setSortBy(option.value);
+    if (query.trim()) {
+      repoStore.fetchRepositories(query);
+    }
+  };
+
+  const selectedLabel =
+    options.find((option) => option.value === sortBy)?.label || '';
+
   if (error) return <p>Ошибка: {error}</p>;
 
   return (
@@ -54,7 +72,11 @@ const SearchPage = observer(() => {
             <h2 className={styles.reposTitle}>
               Result: {totalCount} repositories
             </h2>
-            <Dropdown values={['New first', 'Option 2', 'Option 3']} />
+            <Dropdown
+              onChange={handleDropdownChange}
+              options={options}
+              sortBy={selectedLabel}
+            />
           </div>
           <RepoList repositories={repositories} />
         </>

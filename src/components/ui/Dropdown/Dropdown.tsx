@@ -2,40 +2,45 @@ import { useState } from 'react';
 
 import arrow from '../../../assets/images/down.png';
 import styles from './styles.module.css';
+import { observer } from 'mobx-react-lite';
+import type { SortOption } from '../../../types/Repos/ReposTypes';
 
 interface DropdownProps {
-  values: string[];
+  options: SortOption[];
+  onChange: (value: SortOption) => void;
+  sortBy: string;
 }
 
-const Dropdown = ({ values }: DropdownProps) => {
+const Dropdown = observer(({ options, onChange, sortBy }: DropdownProps) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [sortedBy, setSortedBy] = useState(values[0]);
 
   const handleDropdownToggle = () => {
     setIsOpen(!isOpen);
   };
 
+  const handleOptionClick = (value: SortOption) => {
+    onChange(value);
+    setIsOpen(false);
+  };
+
   return (
     <div className={styles.dropdown}>
       <button className={styles.button} onClick={handleDropdownToggle}>
-        <span className={styles.text}>{sortedBy}</span>
-        <img src={arrow} />
+        <span className={styles.text}>{sortBy}</span>
+        <img src={arrow} alt="arrow" />
       </button>
       <ul className={`${styles.options} ${isOpen ? styles.open : ''}`}>
-        {values.map((value) => (
+        {options.map((option) => (
           <li
-            key={value}
+            key={option.value}
             className={styles.option}
-            onClick={() => {
-              setSortedBy(value);
-              setIsOpen(false);
-            }}
+            onClick={() => handleOptionClick(option)}
           >
-            {value}
+            {option.label}
           </li>
         ))}
       </ul>
     </div>
   );
-};
+});
 export default Dropdown;
