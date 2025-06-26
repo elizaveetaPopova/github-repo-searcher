@@ -2,14 +2,14 @@ import type { Repository } from "../../../types/Repos/ReposTypes"
 import RepoCard from "../../ui/RepoCard"
 
 interface RepoListProps {
-  repos: Repository[]
+  repositories: Repository[]
 }
 
-const RepoList = ({repos}:RepoListProps) => {
+const RepoList = ({repositories}:RepoListProps) => {
   return (
     <>
       {
-        repos.map(repo => <RepoCard key={repo.id} repo={repo}/>)
+        repositories.map(repository => <RepoCard key={repository.id} repo={repository}/>)
       }
     </>
   )

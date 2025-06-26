@@ -1,36 +1,38 @@
 import { makeAutoObservable, runInAction } from 'mobx'
 import axios from 'axios'
 
-import { fetchRepos } from '../api/repo.api'
+import { fetchRepositories } from '../api/repo.api'
 import type { Repository } from '../types/Repos/ReposTypes'
 
 
 
-export interface IRepoStore {
-  repos: Repository[]
+export interface IGithubStore  {
+  repositories: Repository[]
+  totalCount: number
   loading: boolean
   error: string | null
 
-  fetchRepos: (query: string) => Promise<void>
+  fetchRepositories: (query: string) => Promise<void>
 }
 
-class RepoStore implements IRepoStore {
-  repos: Repository[] = []
+class GithubStore  implements IGithubStore {
+  repositories: Repository[] = []
+  totalCount: number = 0
   loading: boolean = false
   error: string | null = null
   constructor() {
     makeAutoObservable(this) 
   }
 
-  fetchRepos = async (query: string) => {
+  fetchRepositories = async (query: string) => {
     this.loading = true
     this.error = null
 
     try {
-      const response = await fetchRepos(query)
-      console.log('response :>> ', response);
+      const response = await fetchRepositories(query)
       runInAction(() => {
-        this.repos = response.items
+        this.repositories = response.items
+        this.totalCount = response.total_count
         this.loading = false
       })
     } catch (e) {
@@ -48,5 +50,5 @@ class RepoStore implements IRepoStore {
   
 }
 
-const repoStore = new RepoStore()
-export default repoStore
+const githubStore = new GithubStore()
+export default githubStore
