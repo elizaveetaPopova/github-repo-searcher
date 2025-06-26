@@ -1,14 +1,14 @@
 .container {
-    background-color: color-mix(in srgb, var(--graphite) 20%, transparent);
-    padding: 0 var(--horizontal-padding);
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
+  background-color: color-mix(in srgb, var(--graphite) 20%, transparent);
+  padding: 0 var(--horizontal-padding);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
-.title {
-    margin: 24px 0;
-    font-size: 22px;
-    font-weight: 600;
-    color: var(--oxford-blue);
+.reposTitle {
+  margin-top: var(--vertical-padding);
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--oxford-blue);
 }

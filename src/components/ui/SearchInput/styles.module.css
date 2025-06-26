@@ -1,3 +1,12 @@
 .input {
-    
+  height: var(--vertical-padding);
+  border-radius: 12px;
+  border: none;
+  padding: 0 20px;
+  width: 100%;
+  margin-top: var(--vertical-padding);
+}
+
+.input::placeholder {
+  opacity: 32%;
 }
