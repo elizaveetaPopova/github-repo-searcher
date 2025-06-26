@@ -54,7 +54,7 @@ const SearchPage = observer(() => {
             <h2 className={styles.reposTitle}>
               Result: {totalCount} repositories
             </h2>
-            <Dropdown />
+            <Dropdown values={['New first', 'Option 2', 'Option 3']} />
           </div>
           <RepoList repositories={repositories} />
         </>

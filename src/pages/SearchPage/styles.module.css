@@ -6,8 +6,15 @@
   flex-direction: column;
 }
 
+.reposHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: var(--vertical-padding) 0;
+}
+
 .reposTitle {
-  margin-top: var(--vertical-padding);
+  margin: 0;
   font-size: 22px;
   font-weight: 600;
   color: var(--oxford-blue);
