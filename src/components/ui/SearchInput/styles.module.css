@@ -1,10 +1,10 @@
 .input {
-  height: var(--vertical-padding);
+  height: 48px;
   border-radius: 12px;
   border: none;
   padding: 0 20px;
   width: 100%;
-  margin-top: var(--vertical-padding);
+  margin: var(--vertical-padding) 0;
 }
 
 .input::placeholder {

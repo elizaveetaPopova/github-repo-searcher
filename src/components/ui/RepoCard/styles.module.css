@@ -1,65 +1,67 @@
 .repoCard {
-    background-color: var(--white);
-    border-radius: 20px;
-    padding: 24px;
-    width: 282px;
+  background-color: var(--white);
+  border-radius: 20px;
+  padding: 24px;
+  min-width: 282px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .header {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .avatar {
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
 }
 
 .info {
-    display: flex;
-    gap: 12px;
+  display: flex;
+  gap: 12px;
 }
 
 .raiting,
 .branches {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding: 8px;
-    gap: 4px;
-    font-size: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 8px;
+  gap: 4px;
+  font-size: 10px;
 }
 
 .icon {
-    width: 16px;
-    height: 16px;
+  width: 16px;
+  height: 16px;
 }
 
 .repo {
-    display: flex;
-    flex-direction: column;
-    margin-top: 12px;
-    gap: 8px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 12px;
+  gap: 8px;
 }
 
 .repoName {
-    font-weight: 600;
+  font-weight: 600;
 }
 
 .repoLink {
-    font-size: 14px;
+  font-size: 14px;
 }
 
-.buttons{
-    display: flex;
-    justify-content: space-between;
-    margin-top: 12px;
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 12px;
 }
 
 .buttonGroup {
-    display: flex;
-    gap: 16px;
+  display: flex;
+  gap: 16px;
 }

@@ -1,6 +1,6 @@
 .container {
   background-color: color-mix(in srgb, var(--graphite) 20%, transparent);
-  padding: 0 var(--horizontal-padding);
+  padding: var(--vertical-padding) var(--horizontal-padding);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
