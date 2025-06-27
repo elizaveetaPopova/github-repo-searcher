@@ -8,6 +8,7 @@ export interface IGithubStore {
   repositories: Repository[];
   sortBy: SortOptionValue;
   totalCount: number;
+  favorites: Repository[];
   loading: boolean;
   error: string | null;
 
@@ -18,6 +19,7 @@ class GithubStore implements IGithubStore {
   repositories: Repository[] = [];
   totalCount: number = 0;
   sortBy: SortOptionValue = 'updated';
+  favorites: Repository[] = [];
   loading: boolean = false;
   error: string | null = null;
   constructor() {
@@ -26,6 +28,10 @@ class GithubStore implements IGithubStore {
 
   setSortBy = (value: SortOptionValue) => {
     this.sortBy = value;
+  };
+
+  addFavorite = (repo: Repository) => {
+    this.favorites.push(repo);
   };
 
   fetchRepositories = async (query: string) => {

@@ -5,13 +5,18 @@ import styles from './styles.module.css';
 
 interface RepoListProps {
   repositories: Repository[];
+  addFavorite: (repo: Repository) => void;
 }
 
-const RepoList = ({ repositories }: RepoListProps) => {
+const RepoList = ({ repositories, addFavorite }: RepoListProps) => {
   return (
     <div className={styles.repoList}>
       {repositories.map((repository) => (
-        <RepoCard key={repository.id} repo={repository} />
+        <RepoCard
+          key={repository.id}
+          repo={repository}
+          addFavorite={addFavorite}
+        />
       ))}
     </div>
   );

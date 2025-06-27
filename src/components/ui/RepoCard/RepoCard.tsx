@@ -1,27 +1,41 @@
-import branches from '../../../assets/images/git-branch 1.png'
-import star from '../../../assets/images/star 1.png'
-import styles from './styles.module.css'
-import FavoriteButton from '../FavoriteButton/FavoriteButton'
-import CopyLinkButton from '../CopyLinkButton/CopyLinkButton'
-import DetailsButton from '../DetailsButton/DetailsButton'
-import type { Repository } from '../../../types/Repos/ReposTypes'
+import branches from '../../../assets/images/git-branch 1.png';
+import star from '../../../assets/images/star 1.png';
+import styles from './styles.module.css';
+import FavoriteButton from '../FavoriteButton/FavoriteButton';
+import CopyLinkButton from '../CopyLinkButton/CopyLinkButton';
+import DetailsButton from '../DetailsButton/DetailsButton';
+import type { Repository } from '../../../types/Repos/ReposTypes';
+import { useState } from 'react';
 
 interface RepoCardProps {
-    repo: Repository
+  repo: Repository;
+  addFavorite: (repo: Repository) => void;
 }
-const RepoCard = ({repo}: RepoCardProps) => {
-  console.log('repo :>> ', repo);
+const RepoCard = ({ repo, addFavorite }: RepoCardProps) => {
+  const [isFavorite, setIsFavorite] = useState(false);
+
+  const handleFavoriteButton = () => {
+    setIsFavorite(!isFavorite);
+    if (!isFavorite) {
+      addFavorite(repo);
+    }
+  };
+
   return (
-    <div className={styles.repoCard}> 
+    <div className={styles.repoCard}>
       <div className={styles.header}>
-        <img alt='avatar' src={repo.owner.avatar_url} className={styles.avatar}/> 
+        <img
+          alt="avatar"
+          src={repo.owner.avatar_url}
+          className={styles.avatar}
+        />
         <div className={styles.info}>
           <div className={styles.raiting}>
-            <img className={styles.icon} src={star} alt='raiting'/>
+            <img className={styles.icon} src={star} alt="raiting" />
             <span>{repo.stargazers_count}</span>
           </div>
           <div className={styles.branches}>
-            <img className={styles.icon} src={branches} alt='branches'/>
+            <img className={styles.icon} src={branches} alt="branches" />
             <span>{repo.forks_count}</span>
           </div>
         </div>
@@ -33,13 +47,16 @@ const RepoCard = ({repo}: RepoCardProps) => {
         </a>
         <div className={styles.buttons}>
           <div className={styles.buttonGroup}>
-            <FavoriteButton isFavorite={false}/>
-            <CopyLinkButton/>
+            <FavoriteButton
+              isFavorite={isFavorite}
+              onClick={handleFavoriteButton}
+            />
+            <CopyLinkButton />
           </div>
-          <DetailsButton/>
+          <DetailsButton />
         </div>
       </div>
     </div>
-  )
-}
-export default RepoCard
+  );
+};
+export default RepoCard;

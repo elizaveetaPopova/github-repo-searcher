@@ -1,13 +1,19 @@
-import heart from '../../../assets/images/heart_off.png'
-import heartOn from '../../../assets/images/heart_on.png'
+import heart from '../../../assets/images/heart_off.png';
+import heartOn from '../../../assets/images/heart_on.png';
 
-import styles from './styles.module.css'
-const FavoriteButton = ({ isFavorite }: { isFavorite: boolean }) => {
-  return (
-    <button className={styles.button}>
-      <img src={isFavorite ? heartOn : heart} />
-    </button>
-  )
+import styles from './styles.module.css';
+
+interface FavoriteButtonProps {
+  isFavorite: boolean;
+  onClick: () => void;
 }
 
-export default FavoriteButton
+const FavoriteButton = ({ isFavorite, onClick }: FavoriteButtonProps) => {
+  return (
+    <button className={styles.button} onClick={onClick}>
+      <img src={isFavorite ? heartOn : heart} />
+    </button>
+  );
+};
+
+export default FavoriteButton;

@@ -19,8 +19,15 @@ const options: SortOption[] = [
 const SearchPage = observer(() => {
   const [query, setQuery] = useState('');
   const [inputError, setInputError] = useState<string | null>(null);
-  const { repositories, loading, error, totalCount, sortBy, setSortBy } =
-    repoStore;
+  const {
+    repositories,
+    loading,
+    error,
+    totalCount,
+    sortBy,
+    setSortBy,
+    addFavorite,
+  } = repoStore;
 
   const debouncedSearch = useRef(
     debounce((query: string) => {
@@ -78,7 +85,7 @@ const SearchPage = observer(() => {
               sortBy={selectedLabel}
             />
           </div>
-          <RepoList repositories={repositories} />
+          <RepoList addFavorite={addFavorite} repositories={repositories} />
         </>
       )}
       {loading && <p>Loading...</p>}
