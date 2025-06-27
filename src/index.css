@@ -1,5 +1,17 @@
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Noto Sans', sans-serif;
   line-height: 1.5;
   font-weight: 400;
+
+  --horizontal-padding: 120px;
+  --vertical-padding: 24px;
+
+  --graphite: #3a3a3a;
+  --white: #ffffff;
+  --oxford-blue: #101828;
+  --cinnabar-red: #d44333;
+}
+
+body {
+  margin: 0;
 }
