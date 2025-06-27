@@ -1,12 +1,19 @@
 import { useNavigate } from 'react-router-dom';
+import { observer } from 'mobx-react-lite';
+
 import logo from '../../../assets/images/logo.png';
 import heart from '../../../assets/images/heart_simple.png';
-import role from '../../../assets/images/Role.png';
+import role from '../../../assets/images/IconText.png';
 
 import style from './styles.module.css';
+import Badge from '../../ui/Badge';
+import favoritesStore from '../../../store/favorites.store';
 
-const Header = () => {
+const Header = observer(() => {
   const navigate = useNavigate();
+
+  const { favorites } = favoritesStore;
+
   const goToFavorites = () => {
     navigate('/favorites');
   };
@@ -24,6 +31,7 @@ const Header = () => {
         <ul className={style.navList}>
           <li className={style.navItem}>
             <button className={style.navButton} onClick={goToFavorites}>
+              {favorites.length > 0 && <Badge count={favorites.length} />}
               <img src={heart} alt="heart" />
             </button>
           </li>
@@ -36,6 +44,6 @@ const Header = () => {
       </nav>
     </header>
   );
-};
+});
 
 export default Header;
