@@ -1,16 +1,17 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
+import { StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
 
-import App from './App.tsx'
+import App from './App.tsx';
+import repoStore from './store/repo.store.ts';
+import favoritesStore from './store/favorites.store.ts';
+import { AppProviders } from './AppProviders.tsx';
 
-import './index.css'
-import { RepoStoreContext } from './store/index.ts'
-import repoStore from './store/repo.store.ts'
+import './index.css';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <RepoStoreContext.Provider value={repoStore}>
+    <AppProviders githubStore={repoStore} favoritesStore={favoritesStore}>
       <App />
-    </RepoStoreContext.Provider>
-  </StrictMode>,
-)
+    </AppProviders>
+  </StrictMode>
+);
