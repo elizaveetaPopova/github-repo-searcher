@@ -24,6 +24,8 @@ const RepoCard = observer(
             alt="avatar"
             src={repo.owner.avatar_url}
             className={styles.avatar}
+            width={32}
+            height={32}
           />
           <div className={styles.info}>
             <div className={styles.raiting}>
