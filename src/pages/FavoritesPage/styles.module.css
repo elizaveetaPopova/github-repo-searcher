@@ -1,0 +1,21 @@
+.container {
+  background-color: color-mix(in srgb, var(--graphite) 20%, transparent);
+  padding: var(--vertical-padding) var(--horizontal-padding);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.reposHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: var(--vertical-padding) 0;
+}
+
+.reposTitle {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--oxford-blue);
+}
