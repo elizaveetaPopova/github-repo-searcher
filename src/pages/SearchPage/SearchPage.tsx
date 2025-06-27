@@ -2,36 +2,24 @@ import { useRef, useState } from 'react';
 import { observer } from 'mobx-react-lite';
 
 import RepoList from '../../components/ui/RepoList';
-import repoStore from '../../store/repo.store';
+import githubStore from '../../store/repo.store';
 import Dropdown from '../../components/ui/Dropdown';
 import SearchInput from '../../components/ui/SearchInput';
 import { debounce } from '../../utils/debounce';
 import type { SortOption } from '../../types/Repos/ReposTypes';
+import { options } from '../../constants/sortOptions';
+import favoritesStore from '../../store/favorites.store';
 
 import styles from './styles.module.css';
 
-const options: SortOption[] = [
-  { value: 'stars', label: 'Star count' },
-  { value: 'name', label: 'Alphabetical' },
-  { value: 'updated', label: 'New first' },
-];
-
 const SearchPage = observer(() => {
-  const [query, setQuery] = useState('');
   const [inputError, setInputError] = useState<string | null>(null);
-  const {
-    repositories,
-    loading,
-    error,
-    totalCount,
-    sortBy,
-    setSortBy,
-    addFavorite,
-  } = repoStore;
+  const { loading, error, totalCount, sortBy, setSortBy, query, setQuery } =
+    githubStore;
 
   const debouncedSearch = useRef(
     debounce((query: string) => {
-      repoStore.fetchRepositories(query);
+      githubStore.fetchRepositories(query);
     }, 1500)
   ).current;
 
@@ -57,7 +45,7 @@ const SearchPage = observer(() => {
   const handleDropdownChange = (option: SortOption) => {
     setSortBy(option.value);
     if (query.trim()) {
-      repoStore.fetchRepositories(query);
+      githubStore.fetchRepositories(query);
     }
   };
 
@@ -65,7 +53,6 @@ const SearchPage = observer(() => {
     options.find((option) => option.value === sortBy)?.label || '';
 
   if (error) return <p>Ошибка: {error}</p>;
-
   return (
     <div className={styles.container}>
       <SearchInput
@@ -85,7 +72,11 @@ const SearchPage = observer(() => {
               sortBy={selectedLabel}
             />
           </div>
-          <RepoList addFavorite={addFavorite} repositories={repositories} />
+          <RepoList
+            favorites={favoritesStore.favorites}
+            onToggleFavorite={favoritesStore.toggleFavorite}
+            repositories={githubStore.repositories}
+          />
         </>
       )}
       {loading && <p>Loading...</p>}
