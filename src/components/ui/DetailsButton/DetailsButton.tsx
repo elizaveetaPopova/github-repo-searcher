@@ -1,11 +1,17 @@
-import styles from './styles.module.css'
+import { Link } from 'react-router-dom';
 
-const DetailsButton = () => {
-  return(
-    <button className={styles.button}>
-      <span className={styles.text}>Подробнее</span>
-    </button>
-  )
+import styles from './styles.module.css';
+
+interface DetailsButtonProps {
+  repoId: number;
 }
 
-export default DetailsButton 
+const DetailsButton = ({ repoId }: DetailsButtonProps) => {
+  return (
+    <Link className={styles.link} to={`/repository/${repoId}`}>
+      <span className={styles.text}>Подробнее</span>
+    </Link>
+  );
+};
+
+export default DetailsButton;

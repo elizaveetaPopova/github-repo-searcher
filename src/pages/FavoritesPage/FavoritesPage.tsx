@@ -24,10 +24,7 @@ const FavoritesPage = observer(() => {
 
   const selectedLabel =
     options.find((option) => option.value === sortBy)?.label || '';
-  console.log(
-    'favoritesStore.sortedFavorites :>> ',
-    favoritesStore.sortedFavorites
-  );
+
   return (
     <div className={styles.container}>
       <BackButton onClick={goBack} />

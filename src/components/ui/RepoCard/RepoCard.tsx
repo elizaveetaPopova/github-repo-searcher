@@ -1,11 +1,12 @@
 import { observer } from 'mobx-react-lite';
 
-import FavoriteButton from '../FavoriteButton/FavoriteButton';
-import CopyLinkButton from '../CopyLinkButton/CopyLinkButton';
+import FavoriteButton from '../FavoriteButton';
+import CopyLinkButton from '../CopyLinkButton';
 import DetailsButton from '../DetailsButton/DetailsButton';
 
 import branches from '../../../assets/images/git-branch 1.png';
 import star from '../../../assets/images/star 1.png';
+
 import type { Repository } from '../../../types/Repos/ReposTypes';
 
 import styles from './styles.module.css';
@@ -15,6 +16,7 @@ interface RepoCardProps {
   onToggleFavorite: (repo: Repository) => void;
   isFavorite: boolean;
 }
+
 const RepoCard = observer(
   ({ repo, onToggleFavorite, isFavorite }: RepoCardProps) => {
     return (
@@ -51,7 +53,7 @@ const RepoCard = observer(
               />
               <CopyLinkButton />
             </div>
-            <DetailsButton />
+            <DetailsButton repoId={repo.id} />
           </div>
         </div>
       </div>
