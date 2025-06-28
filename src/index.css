@@ -3,7 +3,7 @@
   line-height: 1.5;
   font-weight: 400;
 
-  --horizontal-padding: 120px;
+  --horizontal-padding: clamp(16px, 10vw, 300px);
   --vertical-padding: 24px;
 
   --graphite: #3a3a3a;
