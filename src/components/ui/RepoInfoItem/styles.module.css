@@ -1,0 +1,5 @@
+.item {
+  background-color: color-mix(in srgb, var(--graphite) 20%, transparent);
+  border-radius: 20px;
+  padding: 0 16px;
+}
