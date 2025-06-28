@@ -13,6 +13,7 @@ export interface Repository {
   created_at: string;
   updated_at: string;
   language: string;
+  description: string;
 }
 
 export type SortOptionValue = 'stars' | 'name' | 'updated';
