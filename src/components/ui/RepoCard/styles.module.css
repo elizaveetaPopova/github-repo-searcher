@@ -32,6 +32,8 @@
   padding: 8px;
   gap: 4px;
   font-size: 10px;
+  background-color: var(--ice);
+  border-radius: 20px;
 }
 
 .icon {
@@ -52,6 +54,9 @@
 
 .repoLink {
   font-size: 14px;
+  word-break: break-all;
+  color: var(--blue);
+  text-decoration: none;
 }
 
 .buttons {

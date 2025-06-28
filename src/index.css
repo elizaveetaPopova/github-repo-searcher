@@ -3,13 +3,15 @@
   line-height: 1.5;
   font-weight: 400;
 
-  --horizontal-padding: 120px;
+  --horizontal-padding: clamp(16px, 10vw, 300px);
   --vertical-padding: 24px;
 
   --graphite: #3a3a3a;
   --white: #ffffff;
   --oxford-blue: #101828;
   --cinnabar-red: #d44333;
+  --blue: #1e89f0;
+  --ice: #f1f5f9;
 }
 
 body {

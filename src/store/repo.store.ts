@@ -4,34 +4,25 @@ import axios from 'axios';
 import { fetchRepositories } from '../api/repo.api';
 import type { Repository, SortOptionValue } from '../types/Repos/ReposTypes';
 
-export interface IGithubStore {
-  repositories: Repository[];
-  sortBy: SortOptionValue;
-  totalCount: number;
-  favorites: Repository[];
-  loading: boolean;
-  error: string | null;
-
-  fetchRepositories: (query: string) => Promise<void>;
-}
-
-class GithubStore implements IGithubStore {
+export class GithubStore {
+  query: string = '';
   repositories: Repository[] = [];
   totalCount: number = 0;
   sortBy: SortOptionValue = 'updated';
   favorites: Repository[] = [];
   loading: boolean = false;
   error: string | null = null;
+
   constructor() {
     makeAutoObservable(this);
   }
 
-  setSortBy = (value: SortOptionValue) => {
-    this.sortBy = value;
+  setQuery = (value: string) => {
+    this.query = value;
   };
 
-  addFavorite = (repo: Repository) => {
-    this.favorites.push(repo);
+  setSortBy = (value: SortOptionValue) => {
+    this.sortBy = value;
   };
 
   fetchRepositories = async (query: string) => {
@@ -43,7 +34,7 @@ class GithubStore implements IGithubStore {
       let sortedItems = response.items;
 
       if (this.sortBy === 'name') {
-        sortedItems = response.items.sort((a: Repository, b: Repository) =>
+        sortedItems = [...sortedItems].sort((a, b) =>
           a.name.localeCompare(b.name)
         );
       }

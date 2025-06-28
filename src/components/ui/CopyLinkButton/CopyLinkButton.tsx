@@ -1,11 +1,13 @@
-import link from '../../../assets/images/link.png'
-import styles from './styles.module.css'
+import link from '../../../assets/images/link.png';
+
+import styles from './styles.module.css';
 
 const CopyLinkButton = () => {
   return (
     <button className={styles.button}>
       <img src={link} />
-    </button>)
-}
+    </button>
+  );
+};
 
-export default CopyLinkButton
+export default CopyLinkButton;
