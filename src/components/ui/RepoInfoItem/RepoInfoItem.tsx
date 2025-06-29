@@ -13,8 +13,10 @@ const RepoInfoItem = ({ icon, value, label, alt }: RepoInfoItemProps) => {
       <div className={styles.iconContainer}>
         <img src={icon} alt={alt} className={styles.icon} />
       </div>
-      <span className={styles.value}>{value}</span>
-      <span className={styles.label}>{label}</span>
+      <div className={styles.info}>
+        <span className={styles.value}>{value}</span>
+        <span className={styles.label}>{label}</span>
+      </div>
     </div>
   );
 };

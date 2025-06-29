@@ -2,7 +2,7 @@ import { observer } from 'mobx-react-lite';
 
 import FavoriteButton from '../FavoriteButton';
 import CopyLinkButton from '../CopyLinkButton';
-import DetailsButton from '../DetailsButton/DetailsButton';
+import LinkButton from '../LinkButton';
 
 import branches from '../../../assets/images/git-branch 1.png';
 import star from '../../../assets/images/star 1.png';
@@ -53,7 +53,7 @@ const RepoCard = observer(
               />
               <CopyLinkButton />
             </div>
-            <DetailsButton repoId={repo.id} />
+            <LinkButton repoId={repo.id} size="small" />
           </div>
         </div>
       </div>

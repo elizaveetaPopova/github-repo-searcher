@@ -1,5 +1,5 @@
 .container {
-  background-color: color-mix(in srgb, var(--graphite) 20%, transparent);
+  background-color: var(--overlay-light);
   padding: var(--vertical-padding) var(--horizontal-padding);
   min-height: 100vh;
   display: flex;

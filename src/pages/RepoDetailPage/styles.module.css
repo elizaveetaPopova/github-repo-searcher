@@ -1,5 +1,5 @@
 .container {
-  background-color: color-mix(in srgb, var(--graphite) 20%, transparent);
+  background-color: var(--overlay-light);
   padding: var(--vertical-padding) var(--horizontal-padding);
   min-height: 100vh;
   display: flex;
@@ -53,9 +53,25 @@
   margin: 0;
 }
 
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
 .divider {
   border: none;
   height: 1px;
   background-color: var(--shadow-ultralight);
   margin: 24px 0;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.buttonGroup {
+  display: flex;
+  gap: 32px;
 }
