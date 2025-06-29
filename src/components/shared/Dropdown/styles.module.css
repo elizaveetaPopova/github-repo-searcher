@@ -47,5 +47,5 @@
 }
 
 .option:hover {
-  background-color: color-mix(in srgb, var(--graphite) 20%, transparent);
+  background-color: var(--overlay-light);
 }

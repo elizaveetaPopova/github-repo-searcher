@@ -1,6 +1,6 @@
 import { observer } from 'mobx-react-lite';
 
-import RepoCard from '../../ui/RepoCard';
+import RepoCard from '../../features/RepoCard';
 import type { Repository } from '../../../types/Repos/ReposTypes';
 
 import styles from './styles.module.css';

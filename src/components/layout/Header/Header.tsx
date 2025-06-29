@@ -17,7 +17,9 @@ const Header = observer(() => {
   const goToFavorites = () => {
     navigate('/favorites');
   };
+
   const goToProfile = () => {};
+
   const goToHome = () => {
     navigate('/');
   };
