@@ -10,3 +10,11 @@
   display: flex;
   align-items: center;
 }
+
+.small {
+  height: 32px;
+}
+
+.medium {
+  height: 40px;
+}
