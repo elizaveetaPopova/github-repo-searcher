@@ -73,11 +73,12 @@
 .message {
   color: var(--slate-gray);
   font-size: 13px;
-  opacity: 0;
   transition: opacity 0.3s;
   white-space: nowrap;
   display: flex;
   align-items: center;
+  opacity: 0;
+  width: 40px;
 }
 
 .messageVisible {
