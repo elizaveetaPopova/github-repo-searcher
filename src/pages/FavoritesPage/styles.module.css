@@ -1,7 +1,7 @@
 .container {
   background-color: var(--overlay-light);
-  padding: var(--vertical-padding) var(--horizontal-padding);
-  min-height: 100vh;
+  padding: var(--vertical-padding) var(--horizontal-padding) 0;
+  min-height: calc(100vh - 72px);
   display: flex;
   flex-direction: column;
 }

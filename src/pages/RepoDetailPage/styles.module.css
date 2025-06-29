@@ -1,23 +1,23 @@
 .container {
   background-color: var(--overlay-light);
-  padding: var(--vertical-padding) var(--horizontal-padding);
-  min-height: 100vh;
+  padding: var(--vertical-padding) var(--horizontal-padding) 0;
   display: flex;
   flex-direction: column;
+  min-height: calc(100vh - 72px);
 }
 
 .repo {
   background-color: var(--white);
   border-radius: 20px;
   padding: 32px;
-  max-width: 70vw;
+  max-width: 862px;
   min-width: 544px;
   width: 70%;
   box-sizing: border-box;
-  margin: 48px auto 0;
   width: 100%;
   display: flex;
   flex-direction: column;
+  margin: 48px auto 0;
 }
 
 .title {
@@ -28,7 +28,6 @@
 
 .profile {
   display: flex;
-  align-items: center;
   gap: 24px;
   margin: 24px 0;
 }

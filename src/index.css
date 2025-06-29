@@ -5,7 +5,7 @@
 
   color: var(--graphite);
 
-  --horizontal-padding: clamp(16px, 10vw, 300px);
+  --horizontal-padding: max(16px, calc(100vw / 12));
   --vertical-padding: 24px;
 
   --overlay-light: #ededed;

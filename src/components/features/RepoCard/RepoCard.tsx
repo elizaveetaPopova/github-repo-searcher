@@ -68,14 +68,14 @@ const RepoCard = observer(
                 onClick={() => onToggleFavorite(repo)}
               />
               <CopyLinkButton onClick={() => handleCopyLink(repo.html_url)} />
-              <span
-                className={`${styles.message} ${
-                  isCopied ? styles.messageVisible : ''
-                }`}
-              >
-                Copied
-              </span>
             </div>
+            <span
+              className={`${styles.message} ${
+                isCopied ? styles.messageVisible : ''
+              }`}
+            >
+              Copied
+            </span>
             <LinkButton repoId={repo.id} size="small" />
           </div>
         </div>
