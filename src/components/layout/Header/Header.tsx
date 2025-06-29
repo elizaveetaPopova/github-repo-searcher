@@ -1,13 +1,16 @@
 import { useNavigate } from 'react-router-dom';
+
 import { observer } from 'mobx-react-lite';
 
-import logo from '../../../assets/images/logo.png';
-import heart from '../../../assets/images/heart_simple.png';
-import role from '../../../assets/images/IconText.png';
+import Badge from '@components/ui/Badge';
+
+import favoritesStore from '@store/favorites.store';
+
+import heart from '@assets/images/heart_simple.png';
+import role from '@assets/images/IconText.png';
+import logo from '@assets/images/logo.png';
 
 import style from './styles.module.css';
-import Badge from '../../ui/Badge';
-import favoritesStore from '../../../store/favorites.store';
 
 const Header = observer(() => {
   const navigate = useNavigate();

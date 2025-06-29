@@ -1,10 +1,12 @@
 import { useState } from 'react';
+
 import { observer } from 'mobx-react-lite';
 
-import arrow from '../../../assets/images/down.png';
-import type { SortOption } from '../../../types/Repos/ReposTypes';
+import arrow from '@assets/images/down.png';
 
 import styles from './styles.module.css';
+
+import type { SortOption } from '../../../types/Repos/ReposTypes';
 
 interface DropdownProps {
   options: SortOption[];

@@ -1,26 +1,32 @@
 import { useEffect, useState } from 'react';
+
 import { useNavigate, useParams } from 'react-router-dom';
 
-import BackButton from '../../components/ui/BackButton';
-import githubStore from '../../store/repo.store';
+import { observer } from 'mobx-react-lite';
 
-import archive from '../../assets/images/archive 1.png';
-import star from '../../assets/images/star 1.png';
-import fork from '../../assets/images/git-branch 1.png';
-import terminal from '../../assets/images/terminal 1.png';
-import folder from '../../assets/images/folder 1.png';
-import create from '../../assets/images/create 1.png';
+import copy from 'clipboard-copy';
+
+import RepoInfoItem from '@components/features/RepoInfoItem';
+import BackButton from '@components/ui/BackButton';
+import CopyLinkButton from '@components/ui/CopyLinkButton';
+import FavoriteButton from '@components/ui/FavoriteButton';
+import LinkButton from '@components/ui/LinkButton';
+
+import favoritesStore from '@store/favorites.store';
+import githubStore from '@store/repo.store';
+
+import { formatDate } from '@utils/dateFormatter';
+
+import archive from '@assets/images/archive 1.png';
+import create from '@assets/images/create 1.png';
+import folder from '@assets/images/folder 1.png';
+import fork from '@assets/images/git-branch 1.png';
+import star from '@assets/images/star 1.png';
+import terminal from '@assets/images/terminal 1.png';
+
+import { fetchRepositoryById } from '@api/repo.api';
 
 import styles from './styles.module.css';
-import RepoInfoItem from '../../components/features/RepoInfoItem';
-import FavoriteButton from '../../components/ui/FavoriteButton';
-import CopyLinkButton from '../../components/ui/CopyLinkButton';
-import favoritesStore from '../../store/favorites.store';
-import { observer } from 'mobx-react-lite';
-import { fetchRepositoryById } from '../../api/repo.api';
-import LinkButton from '../../components/ui/LinkButton';
-import { formatDate } from '../../utils/dateFormatter';
-import copy from 'clipboard-copy';
 
 const RepoDetailPage = observer(() => {
   const navigate = useNavigate();

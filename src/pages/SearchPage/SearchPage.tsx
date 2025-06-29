@@ -1,16 +1,21 @@
 import { useRef, useState } from 'react';
+
 import { observer } from 'mobx-react-lite';
 
-import RepoList from '../../components/features/RepoList';
-import githubStore from '../../store/repo.store';
-import Dropdown from '../../components/shared/Dropdown';
-import SearchInput from '../../components/ui/SearchInput';
-import { debounce } from '../../utils/debounce';
-import type { SortOption } from '../../types/Repos/ReposTypes';
-import { options } from '../../constants/sortOptions';
-import favoritesStore from '../../store/favorites.store';
+import RepoList from '@components/features/RepoList';
+import Dropdown from '@components/shared/Dropdown';
+import SearchInput from '@components/ui/SearchInput';
+
+import favoritesStore from '@store/favorites.store';
+import githubStore from '@store/repo.store';
+
+import { debounce } from '@utils/debounce';
+
+import { options } from '@constants/sortOptions';
 
 import styles from './styles.module.css';
+
+import type { SortOption } from '../../types/Repos/ReposTypes';
 
 const SearchPage = observer(() => {
   const [inputError, setInputError] = useState<string | null>(null);

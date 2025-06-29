@@ -1,7 +1,8 @@
-import { makeAutoObservable, runInAction } from 'mobx';
 import axios from 'axios';
+import { makeAutoObservable, runInAction } from 'mobx';
 
 import { fetchRepositories } from '../api/repo.api';
+
 import type { Repository, SortOptionValue } from '../types/Repos/ReposTypes';
 
 export class GithubStore {

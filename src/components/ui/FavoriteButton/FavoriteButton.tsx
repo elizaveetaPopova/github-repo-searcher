@@ -1,5 +1,5 @@
-import heart from '../../../assets/images/heart_off.png';
-import heartOn from '../../../assets/images/heart_on.png';
+import heart from '@assets/images/heart_off.png';
+import heartOn from '@assets/images/heart_on.png';
 
 import styles from './styles.module.css';
 

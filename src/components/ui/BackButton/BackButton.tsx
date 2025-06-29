@@ -1,4 +1,4 @@
-import arrowLeft from '../../../assets/images/Arrow left.png';
+import arrowLeft from '@assets/images/Arrow left.png';
 
 import styles from './styles.module.css';
 

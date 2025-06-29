@@ -1,9 +1,9 @@
 import { observer } from 'mobx-react-lite';
 
-import RepoCard from '../../features/RepoCard';
-import type { Repository } from '../../../types/Repos/ReposTypes';
-
 import styles from './styles.module.css';
+import RepoCard from '../RepoCard';
+
+import type { Repository } from '../../../types/Repos/ReposTypes';
 
 interface RepoListProps {
   repositories: Repository[];

@@ -1,14 +1,18 @@
 import { useNavigate } from 'react-router-dom';
+
 import { observer } from 'mobx-react-lite';
 
-import BackButton from '../../components/ui/BackButton';
-import RepoList from '../../components/features/RepoList';
-import Dropdown from '../../components/shared/Dropdown';
-import type { SortOption } from '../../types/Repos/ReposTypes';
-import { options } from '../../constants/sortOptions';
-import favoritesStore from '../../store/favorites.store';
+import RepoList from '@components/features/RepoList';
+import Dropdown from '@components/shared/Dropdown';
+import BackButton from '@components/ui/BackButton';
+
+import favoritesStore from '@store/favorites.store';
+
+import { options } from '@constants/sortOptions';
 
 import styles from './styles.module.css';
+
+import type { SortOption } from '../../types/Repos/ReposTypes';
 
 const FavoritesPage = observer(() => {
   const navigate = useNavigate();
