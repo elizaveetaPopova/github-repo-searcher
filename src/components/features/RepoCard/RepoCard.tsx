@@ -1,17 +1,19 @@
+import { useState } from 'react';
+
 import { observer } from 'mobx-react-lite';
 
-import FavoriteButton from '../../ui/FavoriteButton';
-import CopyLinkButton from '../../ui/CopyLinkButton';
-import LinkButton from '../../ui/LinkButton';
+import copy from 'clipboard-copy';
 
-import branches from '../../../assets/images/git-branch 1.png';
-import star from '../../../assets/images/star 1.png';
+import CopyLinkButton from '@components/ui/CopyLinkButton';
+import FavoriteButton from '@components/ui/FavoriteButton';
+import LinkButton from '@components/ui/LinkButton';
 
-import type { Repository } from '../../../types/Repos/ReposTypes';
+import branches from '@assets/images/git-branch 1.png';
+import star from '@assets/images/star 1.png';
 
 import styles from './styles.module.css';
-import { useState } from 'react';
-import copy from 'clipboard-copy';
+
+import type { Repository } from '../../../types/Repos/ReposTypes';
 
 interface RepoCardProps {
   repo: Repository;

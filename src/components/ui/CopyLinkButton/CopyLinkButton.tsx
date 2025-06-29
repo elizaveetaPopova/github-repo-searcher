@@ -1,4 +1,4 @@
-import link from '../../../assets/images/link.png';
+import link from '@assets/images/link.png';
 
 import styles from './styles.module.css';
 
