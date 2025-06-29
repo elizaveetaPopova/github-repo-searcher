@@ -18,3 +18,15 @@ export const fetchRepositories = async (value: string, sortBy?: string) => {
     throw error;
   }
 };
+
+export const fetchRepositoryById = async (id: number) => {
+  try {
+    const response = await axios.get(
+      `https://api.github.com/repositories/${id}`
+    );
+    return response.data;
+  } catch (error) {
+    console.error('API Error :>> ', error);
+    throw error;
+  }
+};
