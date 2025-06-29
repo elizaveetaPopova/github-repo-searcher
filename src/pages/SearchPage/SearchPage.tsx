@@ -1,9 +1,9 @@
 import { useRef, useState } from 'react';
 import { observer } from 'mobx-react-lite';
 
-import RepoList from '../../components/ui/RepoList';
+import RepoList from '../../components/features/RepoList';
 import githubStore from '../../store/repo.store';
-import Dropdown from '../../components/ui/Dropdown';
+import Dropdown from '../../components/shared/Dropdown';
 import SearchInput from '../../components/ui/SearchInput';
 import { debounce } from '../../utils/debounce';
 import type { SortOption } from '../../types/Repos/ReposTypes';
@@ -14,6 +14,7 @@ import styles from './styles.module.css';
 
 const SearchPage = observer(() => {
   const [inputError, setInputError] = useState<string | null>(null);
+
   const { loading, error, totalCount, sortBy, setSortBy, query, setQuery } =
     githubStore;
 

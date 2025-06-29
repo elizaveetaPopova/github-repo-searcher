@@ -2,8 +2,8 @@ import { useNavigate } from 'react-router-dom';
 import { observer } from 'mobx-react-lite';
 
 import BackButton from '../../components/ui/BackButton';
-import RepoList from '../../components/ui/RepoList';
-import Dropdown from '../../components/ui/Dropdown';
+import RepoList from '../../components/features/RepoList';
+import Dropdown from '../../components/shared/Dropdown';
 import type { SortOption } from '../../types/Repos/ReposTypes';
 import { options } from '../../constants/sortOptions';
 import favoritesStore from '../../store/favorites.store';
@@ -12,6 +12,7 @@ import styles from './styles.module.css';
 
 const FavoritesPage = observer(() => {
   const navigate = useNavigate();
+
   const { favorites, setSortBy, sortBy } = favoritesStore;
 
   const goBack = () => {

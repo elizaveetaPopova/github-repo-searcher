@@ -2,9 +2,13 @@ import link from '../../../assets/images/link.png';
 
 import styles from './styles.module.css';
 
-const CopyLinkButton = () => {
+interface CopyLinkButtonProps {
+  onClick: () => void;
+}
+
+const CopyLinkButton = ({ onClick }: CopyLinkButtonProps) => {
   return (
-    <button className={styles.button}>
+    <button className={styles.button} onClick={onClick}>
       <img src={link} />
     </button>
   );

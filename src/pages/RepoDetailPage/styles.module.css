@@ -75,3 +75,17 @@
   display: flex;
   gap: 32px;
 }
+
+.message {
+  color: var(--slate-gray);
+  font-size: 13px;
+  opacity: 0;
+  transition: opacity 0.3s;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+}
+
+.messageVisible {
+  opacity: 1;
+}

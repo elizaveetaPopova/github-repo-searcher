@@ -1,0 +1,85 @@
+.repoCard {
+  background-color: var(--white);
+  border-radius: 20px;
+  padding: 24px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+
+.info {
+  display: flex;
+  gap: 12px;
+}
+
+.raiting,
+.branches {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 8px;
+  gap: 4px;
+  font-size: 10px;
+  background-color: var(--ice);
+  border-radius: 20px;
+}
+
+.icon {
+  width: 16px;
+  height: 16px;
+}
+
+.repo {
+  display: flex;
+  flex-direction: column;
+  margin-top: 12px;
+  gap: 8px;
+}
+
+.repoName {
+  font-weight: 600;
+}
+
+.repoLink {
+  font-size: 14px;
+  word-break: break-all;
+  color: var(--blue);
+  text-decoration: none;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 12px;
+}
+
+.buttonGroup {
+  display: flex;
+  gap: 16px;
+}
+
+.message {
+  color: var(--slate-gray);
+  font-size: 13px;
+  opacity: 0;
+  transition: opacity 0.3s;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+}
+
+.messageVisible {
+  opacity: 1;
+}

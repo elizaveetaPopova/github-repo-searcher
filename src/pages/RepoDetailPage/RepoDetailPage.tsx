@@ -12,7 +12,7 @@ import folder from '../../assets/images/folder 1.png';
 import create from '../../assets/images/create 1.png';
 
 import styles from './styles.module.css';
-import RepoInfoItem from '../../components/ui/RepoInfoItem';
+import RepoInfoItem from '../../components/features/RepoInfoItem';
 import FavoriteButton from '../../components/ui/FavoriteButton';
 import CopyLinkButton from '../../components/ui/CopyLinkButton';
 import favoritesStore from '../../store/favorites.store';
@@ -20,6 +20,7 @@ import { observer } from 'mobx-react-lite';
 import { fetchRepositoryById } from '../../api/repo.api';
 import LinkButton from '../../components/ui/LinkButton';
 import { formatDate } from '../../utils/dateFormatter';
+import copy from 'clipboard-copy';
 
 const RepoDetailPage = observer(() => {
   const navigate = useNavigate();
@@ -28,6 +29,7 @@ const RepoDetailPage = observer(() => {
   const { repositories } = githubStore;
   const { favorites, toggleFavorite } = favoritesStore;
 
+  const [isCopied, setCopied] = useState(false);
   const [repo, setRepo] = useState(
     () => repositories.find((r) => r.id === Number(id)) || null
   );
@@ -47,6 +49,16 @@ const RepoDetailPage = observer(() => {
 
   const goBack = () => {
     navigate(-1);
+  };
+
+  const handleCopyLink = async (url: string) => {
+    try {
+      await copy(url);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch (error) {
+      console.error('Error copying link:', error);
+    }
   };
 
   return (
@@ -113,7 +125,14 @@ const RepoDetailPage = observer(() => {
                 isFavorite={isFavorite}
                 onClick={() => toggleFavorite(repo)}
               />
-              <CopyLinkButton />
+              <CopyLinkButton onClick={() => handleCopyLink(repo.html_url)} />
+              <span
+                className={`${styles.message} ${
+                  isCopied ? styles.messageVisible : ''
+                }`}
+              >
+                Copied
+              </span>
             </div>
             <LinkButton label="Открыть репотизторий" url={repo.html_url} />
           </div>
