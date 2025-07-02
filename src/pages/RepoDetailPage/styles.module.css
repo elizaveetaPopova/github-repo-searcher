@@ -1,6 +1,6 @@
 .container {
   background-color: var(--overlay-light);
-  padding: var(--vertical-padding) var(--horizontal-padding) 0;
+  padding: var(--vertical-padding) var(--horizontal-padding);
   display: flex;
   flex-direction: column;
   min-height: calc(100vh - 72px);
@@ -10,11 +10,9 @@
   background-color: var(--white);
   border-radius: 20px;
   padding: 32px;
-  max-width: 862px;
-  min-width: 544px;
-  width: 70%;
-  box-sizing: border-box;
   width: 100%;
+  max-width: 862px;
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   margin: 48px auto 0;
@@ -28,34 +26,57 @@
 
 .profile {
   display: flex;
-  gap: 24px;
+  flex-direction: column;
+  gap: 16px;
   margin: 24px 0;
+}
+
+@media (min-width: 640px) {
+  .profile {
+    flex-direction: row;
+    gap: 24px;
+  }
 }
 
 .avatar {
   border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
 }
 
 .info {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 16px;
 }
 
 .name {
-  font-size: 24px;
+  font-size: 22px;
   font-weight: 600;
 }
 
 .description {
-  font-size: 20px;
+  font-size: 18px;
   margin: 0;
 }
 
 .stats {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1fr;
   gap: 24px;
+}
+
+@media (min-width: 640px) {
+  .stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .stats {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 .divider {
@@ -67,12 +88,22 @@
 
 .buttons {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  gap: 16px;
+}
+
+@media (min-width: 640px) {
+  .buttons {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
 }
 
 .buttonGroup {
   display: flex;
-  gap: 32px;
+  gap: 16px;
+  flex-wrap: wrap;
 }
 
 .message {
